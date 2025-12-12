@@ -1,0 +1,1485 @@
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1f1f1f;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: inline-block;
+  opacity: 0;
+  height: 0;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: "►";
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: "▼";
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: "(";
+}
+
+.xr-dim-list:after {
+  content: ")";
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ",";
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 10kB
+Dimensions:          (lat: 360, lon: 720, time: 48)
+Coordinates:
+  * lat              (lat) float32 1kB -89.75 -89.25 -88.75 ... 89.25 89.75
+  * lon              (lon) float32 3kB -179.8 -179.2 -178.8 ... 179.2 179.8
+  * time             (time) datetime64[ns] 384B 2013-01-01 ... 2016-12-01
+Data variables: (12/14)
+    cfc_mean         (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    cfc_stddev       (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    cfc_high_mean    (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    cfc_high_stddev  (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    cfc_low_mean     (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    cfc_low_stddev   (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    ...               ...
+    cfc_std_mean     (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    cfc_std_stddev   (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    cfc_unc_mean     (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    cfc_unc_stddev   (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    nobs_mean        (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    nobs_stddev      (time) float64 384B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+Attributes: (12/40)
+    Conventions:                 CF-1.6,ACDD-1.3
+    cdm_data_type:               Grid
+    comment:                     These data were produced at ESACCI as part o...
+    creator_email:               contact.cloudcci@dwd.de
+    creator_name:                Deutscher Wetterdienst
+    creator_url:                 http://www.dwd.de
+    ...                          ...
+    time_coverage_duration:      P1M
+    time_coverage_end:           20161231T235959Z
+    time_coverage_resolution:    P1M
+    time_coverage_start:         20161201T000000Z
+    title:                       ESA Cloud CCI Retrieval Products L3 Output File
+    tracking_id:                 dc09abb8-324f-4cc6-97f1-d8c0e4deae2e</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-cf5da1b9-cc63-4fa6-b6b9-8cfc6ee60526' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-cf5da1b9-cc63-4fa6-b6b9-8cfc6ee60526' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 360</li><li><span class='xr-has-index'>lon</span>: 720</li><li><span class='xr-has-index'>time</span>: 48</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-ff52b167-7784-437b-a7a4-99502aebbf5c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ff52b167-7784-437b-a7a4-99502aebbf5c' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-89.75 -89.25 ... 89.25 89.75</div><input id='attrs-38e04401-d5cf-4bb0-bb22-8f775e6fa4f0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-38e04401-d5cf-4bb0-bb22-8f775e6fa4f0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0b7771c9-540e-4142-9d2b-adccaa2d6666' class='xr-var-data-in' type='checkbox'><label for='data-0b7771c9-540e-4142-9d2b-adccaa2d6666' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>valid_max :</span></dt><dd>90.0</dd><dt><span>valid_min :</span></dt><dd>-90.0</dd></dl></div><div class='xr-var-data'><pre>array([-89.75, -89.25, -88.75, ...,  88.75,  89.25,  89.75], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-179.8 -179.2 ... 179.2 179.8</div><input id='attrs-cc4d73b3-b274-4efe-88fe-2325a6076fc4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cc4d73b3-b274-4efe-88fe-2325a6076fc4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a807f105-2817-479e-bad0-481e944ced2a' class='xr-var-data-in' type='checkbox'><label for='data-a807f105-2817-479e-bad0-481e944ced2a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>valid_max :</span></dt><dd>180.0</dd><dt><span>valid_min :</span></dt><dd>-180.0</dd></dl></div><div class='xr-var-data'><pre>array([-179.75, -179.25, -178.75, ...,  178.75,  179.25,  179.75],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01 ... 2016-12-01</div><input id='attrs-c9bcabbd-557a-4d28-9838-90f4c6a77e2e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c9bcabbd-557a-4d28-9838-90f4c6a77e2e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c40844c6-929c-4e18-9206-810bbd046593' class='xr-var-data-in' type='checkbox'><label for='data-c40844c6-929c-4e18-9206-810bbd046593' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Time in days</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2013-01-01T00:00:00.000000000&#x27;, &#x27;2013-02-01T00:00:00.000000000&#x27;,
+       &#x27;2013-03-01T00:00:00.000000000&#x27;, &#x27;2013-04-01T00:00:00.000000000&#x27;,
+       &#x27;2013-05-01T00:00:00.000000000&#x27;, &#x27;2013-06-01T00:00:00.000000000&#x27;,
+       &#x27;2013-07-01T00:00:00.000000000&#x27;, &#x27;2013-08-01T00:00:00.000000000&#x27;,
+       &#x27;2013-09-01T00:00:00.000000000&#x27;, &#x27;2013-10-01T00:00:00.000000000&#x27;,
+       &#x27;2013-11-01T00:00:00.000000000&#x27;, &#x27;2013-12-01T00:00:00.000000000&#x27;,
+       &#x27;2014-01-01T00:00:00.000000000&#x27;, &#x27;2014-02-01T00:00:00.000000000&#x27;,
+       &#x27;2014-03-01T00:00:00.000000000&#x27;, &#x27;2014-04-01T00:00:00.000000000&#x27;,
+       &#x27;2014-05-01T00:00:00.000000000&#x27;, &#x27;2014-06-01T00:00:00.000000000&#x27;,
+       &#x27;2014-07-01T00:00:00.000000000&#x27;, &#x27;2014-08-01T00:00:00.000000000&#x27;,
+       &#x27;2014-09-01T00:00:00.000000000&#x27;, &#x27;2014-10-01T00:00:00.000000000&#x27;,
+       &#x27;2014-11-01T00:00:00.000000000&#x27;, &#x27;2014-12-01T00:00:00.000000000&#x27;,
+       &#x27;2015-01-01T00:00:00.000000000&#x27;, &#x27;2015-02-01T00:00:00.000000000&#x27;,
+       &#x27;2015-03-01T00:00:00.000000000&#x27;, &#x27;2015-04-01T00:00:00.000000000&#x27;,
+       &#x27;2015-05-01T00:00:00.000000000&#x27;, &#x27;2015-06-01T00:00:00.000000000&#x27;,
+       &#x27;2015-07-01T00:00:00.000000000&#x27;, &#x27;2015-08-01T00:00:00.000000000&#x27;,
+       &#x27;2015-09-01T00:00:00.000000000&#x27;, &#x27;2015-10-01T00:00:00.000000000&#x27;,
+       &#x27;2015-11-01T00:00:00.000000000&#x27;, &#x27;2015-12-01T00:00:00.000000000&#x27;,
+       &#x27;2016-01-01T00:00:00.000000000&#x27;, &#x27;2016-02-01T00:00:00.000000000&#x27;,
+       &#x27;2016-03-01T00:00:00.000000000&#x27;, &#x27;2016-04-01T00:00:00.000000000&#x27;,
+       &#x27;2016-05-01T00:00:00.000000000&#x27;, &#x27;2016-06-01T00:00:00.000000000&#x27;,
+       &#x27;2016-07-01T00:00:00.000000000&#x27;, &#x27;2016-08-01T00:00:00.000000000&#x27;,
+       &#x27;2016-09-01T00:00:00.000000000&#x27;, &#x27;2016-10-01T00:00:00.000000000&#x27;,
+       &#x27;2016-11-01T00:00:00.000000000&#x27;, &#x27;2016-12-01T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5318a04c-d9a6-45fd-97fc-7c923fed069a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5318a04c-d9a6-45fd-97fc-7c923fed069a' class='xr-section-summary' >Data variables: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>cfc_mean</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-b0e8070c-d84c-4d22-a276-aa24aa08eb30' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b0e8070c-d84c-4d22-a276-aa24aa08eb30' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b506b022-7fcc-4dc4-8674-039331857480' class='xr-var-data-in' type='checkbox'><label for='data-b506b022-7fcc-4dc4-8674-039331857480' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>cloud fraction</dd><dt><span>standard_name :</span></dt><dd>cloud_area_fraction</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Mean aggregated over [&#x27;lat&#x27;, &#x27;lon&#x27;] at each point in time.</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_stddev</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-01b8c727-2e50-4824-bc81-b1821884f228' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-01b8c727-2e50-4824-bc81-b1821884f228' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6f381998-7db8-41f1-bd13-331ad9b9a888' class='xr-var-data-in' type='checkbox'><label for='data-6f381998-7db8-41f1-bd13-331ad9b9a888' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Accompanying std values for variable &#x27;cfc&#x27;</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 6 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_high_mean</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-b43db8d5-1ae7-4383-b2b0-d3def6ab0eca' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b43db8d5-1ae7-4383-b2b0-d3def6ab0eca' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-178b2d4e-8867-44df-8744-0c7af47c9710' class='xr-var-data-in' type='checkbox'><label for='data-178b2d4e-8867-44df-8744-0c7af47c9710' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>high level clouds = ctp &lt; 440 hPa</dd><dt><span>long_name :</span></dt><dd>high level cloud fraction</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Mean aggregated over [&#x27;lat&#x27;, &#x27;lon&#x27;] at each point in time.</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_high_stddev</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-13e95a2f-9778-4976-8646-98884f90ef5a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-13e95a2f-9778-4976-8646-98884f90ef5a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3740e3b2-7276-4fac-abb3-d7b01630b80f' class='xr-var-data-in' type='checkbox'><label for='data-3740e3b2-7276-4fac-abb3-d7b01630b80f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Accompanying std values for variable &#x27;cfc_high&#x27;</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 6 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_low_mean</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-46ee42eb-6f22-4194-9f90-0667fde63e4a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-46ee42eb-6f22-4194-9f90-0667fde63e4a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1f3f8d21-8048-4bdb-b897-ea1e048d153d' class='xr-var-data-in' type='checkbox'><label for='data-1f3f8d21-8048-4bdb-b897-ea1e048d153d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>low level clouds = 680 hPa &lt; ctp &lt; 1100 hPa</dd><dt><span>long_name :</span></dt><dd>low level cloud fraction</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Mean aggregated over [&#x27;lat&#x27;, &#x27;lon&#x27;] at each point in time.</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_low_stddev</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-0256c1c1-6e7d-4fbd-944d-e52984e6ac60' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0256c1c1-6e7d-4fbd-944d-e52984e6ac60' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-284b0e5c-9f2f-4911-b05c-1f67091c57bf' class='xr-var-data-in' type='checkbox'><label for='data-284b0e5c-9f2f-4911-b05c-1f67091c57bf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Accompanying std values for variable &#x27;cfc_low&#x27;</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 6 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_mid_mean</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-ab0cf3f2-5a08-4d53-9626-eac8d1bba762' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ab0cf3f2-5a08-4d53-9626-eac8d1bba762' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9ea06a85-dd09-442a-be0c-25c9ef238796' class='xr-var-data-in' type='checkbox'><label for='data-9ea06a85-dd09-442a-be0c-25c9ef238796' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>mid level clouds = 440 hPa &lt; ctp &lt; 680 hPa</dd><dt><span>long_name :</span></dt><dd>mid level cloud fraction</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Mean aggregated over [&#x27;lat&#x27;, &#x27;lon&#x27;] at each point in time.</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_mid_stddev</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-3a0d6952-c8ec-495e-ac45-885c998e26f4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3a0d6952-c8ec-495e-ac45-885c998e26f4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2fc1f3e8-ef73-4316-8733-c47ec7cb4939' class='xr-var-data-in' type='checkbox'><label for='data-2fc1f3e8-ef73-4316-8733-c47ec7cb4939' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Accompanying std values for variable &#x27;cfc_mid&#x27;</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 6 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_std_mean</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-62bc9bad-56b1-4129-88db-544217c88dff' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-62bc9bad-56b1-4129-88db-544217c88dff' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8d6b90c2-056b-4d12-8897-93bdcfd7c777' class='xr-var-data-in' type='checkbox'><label for='data-8d6b90c2-056b-4d12-8897-93bdcfd7c777' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>standard deviation of retrieved values</dd><dt><span>long_name :</span></dt><dd>cloud fraction standard deviation</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>valid_max :</span></dt><dd>100.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Mean aggregated over [&#x27;lat&#x27;, &#x27;lon&#x27;] at each point in time.</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_std_stddev</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-037102ff-f0ca-427b-bdc5-cd168b04c2d8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-037102ff-f0ca-427b-bdc5-cd168b04c2d8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-32797058-e554-45c9-9bb5-f5762b785466' class='xr-var-data-in' type='checkbox'><label for='data-32797058-e554-45c9-9bb5-f5762b785466' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Accompanying std values for variable &#x27;cfc_std&#x27;</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 6 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_unc_mean</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-6163fd90-b666-4617-98e5-e581ab15dbdc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6163fd90-b666-4617-98e5-e581ab15dbdc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-986cb0aa-9dce-4abb-b7c8-db20341a25f7' class='xr-var-data-in' type='checkbox'><label for='data-986cb0aa-9dce-4abb-b7c8-db20341a25f7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>mean of the pixel uncertainties</dd><dt><span>long_name :</span></dt><dd>cloud fraction uncertainty</dd><dt><span>units :</span></dt><dd>%</dd><dt><span>valid_max :</span></dt><dd>100.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Mean aggregated over [&#x27;lat&#x27;, &#x27;lon&#x27;] at each point in time.</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cfc_unc_stddev</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-8f5a976b-ccb1-4fe5-a36d-0432db23c60c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8f5a976b-ccb1-4fe5-a36d-0432db23c60c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4b2640db-fadb-49d6-8bc4-245742704f73' class='xr-var-data-in' type='checkbox'><label for='data-4b2640db-fadb-49d6-8bc4-245742704f73' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Accompanying std values for variable &#x27;cfc_unc&#x27;</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 6 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nobs_mean</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-651fdade-b0c4-42c0-a60c-899e2bf0931a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-651fdade-b0c4-42c0-a60c-899e2bf0931a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1aca611f-08d4-437c-ace9-4be1c149a297' class='xr-var-data-in' type='checkbox'><label for='data-1aca611f-08d4-437c-ace9-4be1c149a297' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>total number of satellite observations available</dd><dt><span>long_name :</span></dt><dd>number of observations</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>valid_max :</span></dt><dd>1212370944</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Mean aggregated over [&#x27;lat&#x27;, &#x27;lon&#x27;] at each point in time.</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nobs_stddev</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-4c6454dd-3931-4a65-8001-7929b84beb00' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4c6454dd-3931-4a65-8001-7929b84beb00' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e40ece97-1ba5-419a-8504-3c1c8f63e4e5' class='xr-var-data-in' type='checkbox'><label for='data-e40ece97-1ba5-419a-8504-3c1c8f63e4e5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>ESA_Climate_Toolbox_Description :</span></dt><dd>Accompanying std values for variable &#x27;nobs&#x27;</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 384 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (48,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 48 chunks in 6 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="12" y1="0" x2="12" y2="29" />
+  <line x1="17" y1="0" x2="17" y2="29" />
+  <line x1="25" y1="0" x2="25" y2="29" />
+  <line x1="30" y1="0" x2="30" y2="29" />
+  <line x1="37" y1="0" x2="37" y2="29" />
+  <line x1="42" y1="0" x2="42" y2="29" />
+  <line x1="50" y1="0" x2="50" y2="29" />
+  <line x1="55" y1="0" x2="55" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="87" y1="0" x2="87" y2="29" />
+  <line x1="92" y1="0" x2="92" y2="29" />
+  <line x1="100" y1="0" x2="100" y2="29" />
+  <line x1="105" y1="0" x2="105" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.2612335534925 0.0,29.2612335534925" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="49.261234" font-size="1.0rem" font-weight="100" text-anchor="middle" >48</text>
+  <text x="140.000000" y="14.630617" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,14.630617)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-9dfbe3ad-ef2a-4a12-8a69-ce80e093be06' class='xr-section-summary-in' type='checkbox'  ><label for='section-9dfbe3ad-ef2a-4a12-8a69-ce80e093be06' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-38bf40b9-6b43-440d-96b5-2a37531d8f11' class='xr-index-data-in' type='checkbox'/><label for='index-38bf40b9-6b43-440d-96b5-2a37531d8f11' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-89.75, -89.25, -88.75, -88.25, -87.75, -87.25, -86.75, -86.25, -85.75,
+       -85.25,
+       ...
+        85.25,  85.75,  86.25,  86.75,  87.25,  87.75,  88.25,  88.75,  89.25,
+        89.75],
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;, length=360))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-8d194c08-ae4e-448e-901f-be759b2aac5d' class='xr-index-data-in' type='checkbox'/><label for='index-8d194c08-ae4e-448e-901f-be759b2aac5d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-179.75, -179.25, -178.75, -178.25, -177.75, -177.25, -176.75, -176.25,
+       -175.75, -175.25,
+       ...
+        175.25,  175.75,  176.25,  176.75,  177.25,  177.75,  178.25,  178.75,
+        179.25,  179.75],
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=720))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-f6b0d247-a499-4fc3-b8b9-a7c2cc72d445' class='xr-index-data-in' type='checkbox'/><label for='index-f6b0d247-a499-4fc3-b8b9-a7c2cc72d445' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2013-01-01&#x27;, &#x27;2013-02-01&#x27;, &#x27;2013-03-01&#x27;, &#x27;2013-04-01&#x27;,
+               &#x27;2013-05-01&#x27;, &#x27;2013-06-01&#x27;, &#x27;2013-07-01&#x27;, &#x27;2013-08-01&#x27;,
+               &#x27;2013-09-01&#x27;, &#x27;2013-10-01&#x27;, &#x27;2013-11-01&#x27;, &#x27;2013-12-01&#x27;,
+               &#x27;2014-01-01&#x27;, &#x27;2014-02-01&#x27;, &#x27;2014-03-01&#x27;, &#x27;2014-04-01&#x27;,
+               &#x27;2014-05-01&#x27;, &#x27;2014-06-01&#x27;, &#x27;2014-07-01&#x27;, &#x27;2014-08-01&#x27;,
+               &#x27;2014-09-01&#x27;, &#x27;2014-10-01&#x27;, &#x27;2014-11-01&#x27;, &#x27;2014-12-01&#x27;,
+               &#x27;2015-01-01&#x27;, &#x27;2015-02-01&#x27;, &#x27;2015-03-01&#x27;, &#x27;2015-04-01&#x27;,
+               &#x27;2015-05-01&#x27;, &#x27;2015-06-01&#x27;, &#x27;2015-07-01&#x27;, &#x27;2015-08-01&#x27;,
+               &#x27;2015-09-01&#x27;, &#x27;2015-10-01&#x27;, &#x27;2015-11-01&#x27;, &#x27;2015-12-01&#x27;,
+               &#x27;2016-01-01&#x27;, &#x27;2016-02-01&#x27;, &#x27;2016-03-01&#x27;, &#x27;2016-04-01&#x27;,
+               &#x27;2016-05-01&#x27;, &#x27;2016-06-01&#x27;, &#x27;2016-07-01&#x27;, &#x27;2016-08-01&#x27;,
+               &#x27;2016-09-01&#x27;, &#x27;2016-10-01&#x27;, &#x27;2016-11-01&#x27;, &#x27;2016-12-01&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0a302038-27b4-4f57-8d7a-368bb25b2251' class='xr-section-summary-in' type='checkbox'  ><label for='section-0a302038-27b4-4f57-8d7a-368bb25b2251' class='xr-section-summary' >Attributes: <span>(40)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6,ACDD-1.3</dd><dt><span>cdm_data_type :</span></dt><dd>Grid</dd><dt><span>comment :</span></dt><dd>These data were produced at ESACCI as part of the ESA Cloud CCI project.</dd><dt><span>creator_email :</span></dt><dd>contact.cloudcci@dwd.de</dd><dt><span>creator_name :</span></dt><dd>Deutscher Wetterdienst</dd><dt><span>creator_url :</span></dt><dd>http://www.dwd.de</dd><dt><span>date_created :</span></dt><dd>2018-05-08T12:32:42+0000</dd><dt><span>geospatial_lat_max :</span></dt><dd>89.75</dd><dt><span>geospatial_lat_min :</span></dt><dd>-89.75</dd><dt><span>geospatial_lat_resolution :</span></dt><dd>0.50</dd><dt><span>geospatial_lat_units :</span></dt><dd>degrees_north</dd><dt><span>geospatial_lon_max :</span></dt><dd>179.75</dd><dt><span>geospatial_lon_min :</span></dt><dd>-179.75</dd><dt><span>geospatial_lon_resolution :</span></dt><dd>0.50</dd><dt><span>geospatial_lon_units :</span></dt><dd>degrees_east</dd><dt><span>geospatial_vertical_max :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_min :</span></dt><dd>0.0</dd><dt><span>history :</span></dt><dd>Dataset produced by DWDs CC4CL retrieval system installed at ECMWF in second phase of ESA Cloud CCI.
+Modified with the ESA Climate Toolbox v1.4.1.dev0 esa_climate_toolbox.ops.subset.subset_temporal_index v1.0 
+Default input values: OrderedDict({&#x27;ds&#x27;: {&#x27;position&#x27;: 0, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.DatasetLike&#x27;&gt;, &#x27;description&#x27;: &#x27;Dataset or dataframe to subset&#x27;}, &#x27;time_ind_min&#x27;: {&#x27;position&#x27;: 1, &#x27;data_type&#x27;: &lt;class &#x27;int&#x27;&gt;, &#x27;description&#x27;: &#x27;Minimum time index to select&#x27;}, &#x27;time_ind_max&#x27;: {&#x27;position&#x27;: 2, &#x27;data_type&#x27;: &lt;class &#x27;int&#x27;&gt;, &#x27;description&#x27;: &#x27;Maximum time index to select&#x27;}})
+Provided input values: {&#x27;ds&#x27;: &lt;class &#x27;xarray.core.dataset.Dataset&#x27;&gt;, &#x27;time_ind_min&#x27;: 367, &#x27;time_ind_max&#x27;: 415}
+
+Modified with the ESA Climate Toolbox v1.4.1.dev0 esa_climate_toolbox.ops.select.select_var v1.0 
+Default input values: OrderedDict({&#x27;ds&#x27;: {&#x27;position&#x27;: 0, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.DatasetLike&#x27;&gt;, &#x27;description&#x27;: &#x27;The dataset or dataframe from which to perform selection.&#x27;}, &#x27;var&#x27;: {&#x27;position&#x27;: 1, &#x27;default_value&#x27;: None, &#x27;nullable&#x27;: True, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.VarNamesLike&#x27;&gt;, &#x27;description&#x27;: &quot;One or more variable names to select and preserve in the dataset. All of these are valid &#x27;var_name&#x27; &#x27;var_name1,var_name2,var_name3&#x27; [&#x27;var_name1&#x27;, &#x27;var_name2&#x27;]. One can also use wildcards when doing the selection. E.g., choosing &#x27;var_name*&#x27; for selection will select all variables that start with &#x27;var_name&#x27;. This can be used to select variables along with their auxiliary variables, to select all uncertainty variables, and so on.&quot;, &#x27;value_set_source&#x27;: &#x27;ds&#x27;}})
+Provided input values: {&#x27;ds&#x27;: &lt;class &#x27;xarray.core.dataset.Dataset&#x27;&gt;, &#x27;var&#x27;: &#x27;*&#x27;}
+
+Modified with the ESA Climate Toolbox v1.4.1.dev0 esa_climate_toolbox.ops.timeseries.tseries_mean v1.0 
+Default input values: OrderedDict({&#x27;ds&#x27;: {&#x27;position&#x27;: 0, &#x27;data_type&#x27;: &lt;class &#x27;xarray.core.dataset.Dataset&#x27;&gt;, &#x27;description&#x27;: &#x27;The dataset from which to perform timeseries extraction.&#x27;}, &#x27;var&#x27;: {&#x27;position&#x27;: 1, &#x27;default_value&#x27;: None, &#x27;nullable&#x27;: True, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.VarNamesLike&#x27;&gt;, &#x27;description&#x27;: &#x27;Variables for which to perform timeseries extraction&#x27;, &#x27;value_set_source&#x27;: &#x27;ds&#x27;}, &#x27;mean_suffix&#x27;: {&#x27;position&#x27;: 2, &#x27;default_value&#x27;: &#x27;_mean&#x27;, &#x27;data_type&#x27;: &lt;class &#x27;str&#x27;&gt;, &#x27;description&#x27;: &#x27;Mean suffix to use for resulting datasets&#x27;}, &#x27;std_suffix&#x27;: {&#x27;position&#x27;: 3, &#x27;default_value&#x27;: &#x27;_std&#x27;, &#x27;data_type&#x27;: &lt;class &#x27;str&#x27;&gt;, &#x27;description&#x27;: &#x27;Std suffix to use for resulting datasets&#x27;}})
+Provided input values: {&#x27;std_suffix&#x27;: &#x27;_stddev&#x27;, &#x27;ds&#x27;: &lt;class &#x27;xarray.core.dataset.Dataset&#x27;&gt;, &#x27;var&#x27;: None, &#x27;mean_suffix&#x27;: &#x27;_mean&#x27;, &#x27;monitor&#x27;: Monitor.NONE}
+</dd><dt><span>id :</span></dt><dd>201612-ESACCI-L3C_CLOUD-CLD_PRODUCTS-AVHRR_NOAA-19-fv3.0.nc</dd><dt><span>institution :</span></dt><dd>Deutscher Wetterdienst</dd><dt><span>keywords :</span></dt><dd>EARTH SCIENCE &gt; ATMOSPHERE &gt; SATELLITES &gt; CLOUDS &gt; CLOUD PROPERTIES</dd><dt><span>keywords_vocabulary :</span></dt><dd>GCMD Science Keywords, Version 8.1</dd><dt><span>license :</span></dt><dd>ESA CCI Data Policy: free and open access</dd><dt><span>naming_authority :</span></dt><dd>de.dwd</dd><dt><span>number_of_processed_orbits :</span></dt><dd>468</dd><dt><span>platform :</span></dt><dd>NOAA-19</dd><dt><span>product_version :</span></dt><dd>3.0</dd><dt><span>project :</span></dt><dd>Climate Change Initiative - European Space Agency</dd><dt><span>references :</span></dt><dd>http://www.esa-cloud-cci.info</dd><dt><span>sensor :</span></dt><dd>AVHRR</dd><dt><span>source :</span></dt><dd>AVHRR_NOAA-19_GAC</dd><dt><span>spatial_resolution :</span></dt><dd>0.50 degree</dd><dt><span>standard_name_vocabulary :</span></dt><dd>Standard name table (v29, 08 July 2015)</dd><dt><span>summary :</span></dt><dd>This dataset contains monthly Level-3 global cloud property products from satellite observations. Averaged onto a regular grid.</dd><dt><span>time_coverage_duration :</span></dt><dd>P1M</dd><dt><span>time_coverage_end :</span></dt><dd>20161231T235959Z</dd><dt><span>time_coverage_resolution :</span></dt><dd>P1M</dd><dt><span>time_coverage_start :</span></dt><dd>20161201T000000Z</dd><dt><span>title :</span></dt><dd>ESA Cloud CCI Retrieval Products L3 Output File</dd><dt><span>tracking_id :</span></dt><dd>dc09abb8-324f-4cc6-97f1-d8c0e4deae2e</dd></dl></div></li></ul></div></div>

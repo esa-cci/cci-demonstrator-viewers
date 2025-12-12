@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Matching FIRE Data with Sentinel-2 Observations",
+    "description": "",
+    "metadata": {},
+    "image": "build/_assets/previews/external_notebooks_esa-cci_ect-demonstrators_demonstrators_CDSE_Matching-FIRE_Data with_Sentinel-2_Observations_preview.png",
+    "link": "external-notebooks/esa-cci/ect-demonstrators/demonstrators/cdse/matching-fire-data-with-sentinel-2-observations",
+    "org": "esa-cci",
+    "repo": "ect-demonstrators",
+    "source": "submodule",
+    "path": "external_notebooks/esa-cci/ect-demonstrators/demonstrators/CDSE/Matching-FIRE_Data with_Sentinel-2_Observations.ipynb",
+    "gitpuller": "https://workspace.climate.hub-otc.eox.at/hub/user-redirect/git-pull?repo=https://github.com/esa-cci/ect-demonstrators&urlpath=lab/tree/ect-demonstrators/demonstrators/CDSE/Matching-FIRE_Data with_Sentinel-2_Observations.ipynb&branch=main"
+  },
+  {
+    "title": "Matching LST Data with a Sentinel-3 Cube",
+    "description": "",
+    "metadata": {},
+    "image": "build/_assets/previews/external_notebooks_esa-cci_ect-demonstrators_demonstrators_CDSE_Matching_LST_Data_with_a_Sentinel-3_Cube_preview.png",
+    "link": "external-notebooks/esa-cci/ect-demonstrators/demonstrators/cdse/matching-lst-data-with-a-sentinel-3-cube",
+    "org": "esa-cci",
+    "repo": "ect-demonstrators",
+    "source": "submodule",
+    "path": "external_notebooks/esa-cci/ect-demonstrators/demonstrators/CDSE/Matching_LST_Data_with_a_Sentinel-3_Cube.ipynb",
+    "gitpuller": "https://workspace.climate.hub-otc.eox.at/hub/user-redirect/git-pull?repo=https://github.com/esa-cci/ect-demonstrators&urlpath=lab/tree/ect-demonstrators/demonstrators/CDSE/Matching_LST_Data_with_a_Sentinel-3_Cube.ipynb&branch=main"
+  },
+  {
+    "title": "Visualizing Cloud Fraction Uncertainties with Altair and Plotly",
+    "description": "",
+    "metadata": {},
+    "image": null,
+    "link": "external-notebooks/esa-cci/ect-demonstrators/demonstrators/d3-js/d3-js-visualise-uncertainties",
+    "org": "esa-cci",
+    "repo": "ect-demonstrators",
+    "source": "submodule",
+    "path": "external_notebooks/esa-cci/ect-demonstrators/demonstrators/D3_js/D3_js_Visualise_Uncertainties.ipynb",
+    "gitpuller": "https://workspace.climate.hub-otc.eox.at/hub/user-redirect/git-pull?repo=https://github.com/esa-cci/ect-demonstrators&urlpath=lab/tree/ect-demonstrators/demonstrators/D3_js/D3_js_Visualise_Uncertainties.ipynb&branch=main"
+  },
+  {
+    "title": "Visualising Land Cover Class Change with Altair",
+    "description": "",
+    "metadata": {},
+    "image": "build/_assets/previews/external_notebooks_esa-cci_ect-demonstrators_demonstrators_D3_js_D3_js_LC_Classes_preview.png",
+    "link": "external-notebooks/esa-cci/ect-demonstrators/demonstrators/d3-js/d3-js-lc-classes",
+    "org": "esa-cci",
+    "repo": "ect-demonstrators",
+    "source": "submodule",
+    "path": "external_notebooks/esa-cci/ect-demonstrators/demonstrators/D3_js/D3_js_LC_Classes.ipynb",
+    "gitpuller": "https://workspace.climate.hub-otc.eox.at/hub/user-redirect/git-pull?repo=https://github.com/esa-cci/ect-demonstrators&urlpath=lab/tree/ect-demonstrators/demonstrators/D3_js/D3_js_LC_Classes.ipynb&branch=main"
+  },
+  {
+    "title": "Visualizing 4-dimensional Data with Altair and Plotly",
+    "description": "",
+    "metadata": {},
+    "image": null,
+    "link": "external-notebooks/esa-cci/ect-demonstrators/demonstrators/d3-js/d3-js-visualize-4d-data",
+    "org": "esa-cci",
+    "repo": "ect-demonstrators",
+    "source": "submodule",
+    "path": "external_notebooks/esa-cci/ect-demonstrators/demonstrators/D3_js/D3_js_Visualize_4D_Data.ipynb",
+    "gitpuller": "https://workspace.climate.hub-otc.eox.at/hub/user-redirect/git-pull?repo=https://github.com/esa-cci/ect-demonstrators&urlpath=lab/tree/ect-demonstrators/demonstrators/D3_js/D3_js_Visualize_4D_Data.ipynb&branch=main"
+  }
+]
