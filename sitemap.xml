@@ -31,4 +31,25 @@
   <url>
     <loc>http://localhost:3000/external-notebooks/esa-cci/ect-demonstrators/demonstrators/d3-js/d3-js-visualize-4d-data</loc>
   </url>
+  <url>
+    <loc>http://localhost:3000/external-notebooks/esa-cci/ect-demonstrators/demonstrators/earthcode/readme</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/external-notebooks/esa-cci/ect-demonstrators/demonstrators/earthcode/publishing/readme</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/external-notebooks/esa-cci/ect-demonstrators/demonstrators/earthcode/publishing/publish-dataset</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/external-notebooks/esa-cci/ect-demonstrators/demonstrators/earthcode/workflow/readme</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/external-notebooks/esa-cci/ect-demonstrators/demonstrators/earthcode/workflow/sss-anomalies</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/external-notebooks/esa-cci/ect-demonstrators/demonstrators/r/ect-r-demo</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/external-notebooks/esa-cci/ect-demonstrators/demonstrators/r/readme</loc>
+  </url>
 </urlset>

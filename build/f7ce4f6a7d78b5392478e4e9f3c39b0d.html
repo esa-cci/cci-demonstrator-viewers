@@ -1,0 +1,1046 @@
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in notebooks */
+
+:root {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base rgba(0, 0, 0, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, white)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 15))
+  );
+}
+
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
+body.vscode-dark {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base, rgba(255, 255, 255, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, #111111)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 15))
+  );
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+  line-height: 1.6;
+  padding-bottom: 4px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.xr-header {
+  border-bottom: solid 1px var(--xr-border-color);
+  margin-bottom: 4px;
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-obj-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type,
+.xr-group-box-contents > label {
+  color: var(--xr-font-color2);
+  display: block;
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item > input,
+.xr-group-box-contents > input,
+.xr-array-wrap > input {
+  display: block;
+  opacity: 0;
+  height: 0;
+  margin: 0;
+}
+
+.xr-section-item > input + label,
+.xr-var-item > input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item > input:enabled + label,
+.xr-var-item > input:enabled + label,
+.xr-array-wrap > input:enabled + label,
+.xr-group-box-contents > input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item > input:focus-visible + label,
+.xr-var-item > input:focus-visible + label,
+.xr-array-wrap > input:focus-visible + label,
+.xr-group-box-contents > input:focus-visible + label {
+  outline: auto;
+}
+
+.xr-section-item > input:enabled + label:hover,
+.xr-var-item > input:enabled + label:hover,
+.xr-array-wrap > input:enabled + label:hover,
+.xr-group-box-contents > input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.xr-section-summary > em {
+  font-weight: normal;
+}
+
+.xr-span-grid {
+  grid-column-end: -1;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.3em;
+}
+
+.xr-group-box-contents > input:checked + label > span {
+  display: inline-block;
+  padding-left: 0.6em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: "►";
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: "▼";
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details,
+.xr-group-box-contents > label {
+  padding-top: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in ~ .xr-section-details {
+  display: none;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-children {
+  display: inline-grid;
+  grid-template-columns: 100%;
+  grid-column: 1 / -1;
+  padding-top: 4px;
+}
+
+.xr-group-box {
+  display: inline-grid;
+  grid-template-columns: 0px 30px auto;
+}
+
+.xr-group-box-vline {
+  grid-column-start: 1;
+  border-right: 0.2em solid;
+  border-color: var(--xr-border-color);
+  width: 0px;
+}
+
+.xr-group-box-hline {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  height: 1em;
+  width: 26px;
+  border-bottom: 0.2em solid;
+  border-color: var(--xr-border-color);
+}
+
+.xr-group-box-contents {
+  grid-column-start: 3;
+  padding-bottom: 4px;
+}
+
+.xr-group-box-contents > label::before {
+  content: "📂";
+  padding-right: 0.3em;
+}
+
+.xr-group-box-contents > input:checked + label::before {
+  content: "📁";
+}
+
+.xr-group-box-contents > input:checked + label {
+  padding-bottom: 0px;
+}
+
+.xr-group-box-contents > input:checked ~ .xr-sections {
+  display: none;
+}
+
+.xr-group-box-contents > input + label > span {
+  display: none;
+}
+
+.xr-group-box-ellipsis {
+  font-size: 1.4em;
+  font-weight: 900;
+  color: var(--xr-font-color2);
+  letter-spacing: 0.15em;
+  cursor: default;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: "(";
+}
+
+.xr-dim-list:after {
+  content: ")";
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ",";
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  border-color: var(--xr-background-color-row-odd);
+  margin-bottom: 0;
+  padding-top: 2px;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+  border-color: var(--xr-background-color-row-even);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  border-top: 2px dotted var(--xr-background-color);
+  padding-bottom: 20px !important;
+  padding-top: 10px !important;
+}
+
+.xr-var-attrs-in + label,
+.xr-var-data-in + label,
+.xr-index-data-in + label {
+  padding: 0 1px;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-data > pre,
+.xr-index-data > pre,
+.xr-var-data > table > tbody > tr {
+  background-color: transparent !important;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.xr-var-attrs-in:checked + label > .xr-icon-file-text2,
+.xr-var-data-in:checked + label > .xr-icon-database,
+.xr-index-data-in:checked + label > .xr-icon-database {
+  color: var(--xr-font-color0);
+  filter: drop-shadow(1px 1px 5px var(--xr-font-color2));
+  stroke-width: 0.8px;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 1kB
+Dimensions:   (time: 46)
+Coordinates:
+  * time      (time) datetime64[ns] 368B 2015-01-01 2015-01-09 ... 2015-12-27
+    lat       float64 8B 16.23
+    lon       float64 8B 96.44
+Data variables:
+    atot_412  (time) float32 184B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    atot_443  (time) float32 184B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    atot_490  (time) float32 184B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    atot_510  (time) float32 184B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    atot_560  (time) float32 184B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    atot_665  (time) float32 184B dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+Attributes: (12/45)
+    Conventions:                       CF-1.7
+    Metadata_Conventions:              Unidata Dataset Discovery v1.0
+    NCO:                               netCDF Operators version 4.7.5 (Homepa...
+    cdm_data_type:                     Grid
+    comment:                           See summary attribute
+    creation_date:                     Tue Jan 31 11:54:16 2023
+    ...                                ...
+    time_coverage_end:                 2015-12-27T00:00:00
+    time_coverage_resolution:          P8D
+    time_coverage_start:               2015-01-01T00:00:00
+    title:                             ESA CCI Ocean Colour Product
+    tracking_id:                       518fbec7-8d82-4961-a1e4-19736132d4b7
+    catalogue_url:                     https://catalogue.ceda.ac.uk/uuid/0875...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-7b0d1ca4-de30-4885-97bb-1e41490265ee' class='xr-section-summary-in' type='checkbox' disabled /><label for='section-7b0d1ca4-de30-4885-97bb-1e41490265ee' class='xr-section-summary'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 46</li></ul></div></li><li class='xr-section-item'><input id='section-1ca65ddb-fba1-42ad-aec2-6f012c5ffc74' class='xr-section-summary-in' type='checkbox' checked /><label for='section-1ca65ddb-fba1-42ad-aec2-6f012c5ffc74' class='xr-section-summary' title='Expand/collapse section'>Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2015-01-01 ... 2015-12-27</div><input id='attrs-17014ef2-ef42-4083-bf45-8a48e55f575c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-17014ef2-ef42-4083-bf45-8a48e55f575c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ca50a122-0a7e-45a5-962e-3025dcc92b79' class='xr-var-data-in' type='checkbox'><label for='data-ca50a122-0a7e-45a5-962e-3025dcc92b79' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2015-01-01T00:00:00.000000000&#x27;, &#x27;2015-01-09T00:00:00.000000000&#x27;,
+       &#x27;2015-01-17T00:00:00.000000000&#x27;, &#x27;2015-01-25T00:00:00.000000000&#x27;,
+       &#x27;2015-02-02T00:00:00.000000000&#x27;, &#x27;2015-02-10T00:00:00.000000000&#x27;,
+       &#x27;2015-02-18T00:00:00.000000000&#x27;, &#x27;2015-02-26T00:00:00.000000000&#x27;,
+       &#x27;2015-03-06T00:00:00.000000000&#x27;, &#x27;2015-03-14T00:00:00.000000000&#x27;,
+       &#x27;2015-03-22T00:00:00.000000000&#x27;, &#x27;2015-03-30T00:00:00.000000000&#x27;,
+       &#x27;2015-04-07T00:00:00.000000000&#x27;, &#x27;2015-04-15T00:00:00.000000000&#x27;,
+       &#x27;2015-04-23T00:00:00.000000000&#x27;, &#x27;2015-05-01T00:00:00.000000000&#x27;,
+       &#x27;2015-05-09T00:00:00.000000000&#x27;, &#x27;2015-05-17T00:00:00.000000000&#x27;,
+       &#x27;2015-05-25T00:00:00.000000000&#x27;, &#x27;2015-06-02T00:00:00.000000000&#x27;,
+       &#x27;2015-06-10T00:00:00.000000000&#x27;, &#x27;2015-06-18T00:00:00.000000000&#x27;,
+       &#x27;2015-06-26T00:00:00.000000000&#x27;, &#x27;2015-07-04T00:00:00.000000000&#x27;,
+       &#x27;2015-07-12T00:00:00.000000000&#x27;, &#x27;2015-07-20T00:00:00.000000000&#x27;,
+       &#x27;2015-07-28T00:00:00.000000000&#x27;, &#x27;2015-08-05T00:00:00.000000000&#x27;,
+       &#x27;2015-08-13T00:00:00.000000000&#x27;, &#x27;2015-08-21T00:00:00.000000000&#x27;,
+       &#x27;2015-08-29T00:00:00.000000000&#x27;, &#x27;2015-09-06T00:00:00.000000000&#x27;,
+       &#x27;2015-09-14T00:00:00.000000000&#x27;, &#x27;2015-09-22T00:00:00.000000000&#x27;,
+       &#x27;2015-09-30T00:00:00.000000000&#x27;, &#x27;2015-10-08T00:00:00.000000000&#x27;,
+       &#x27;2015-10-16T00:00:00.000000000&#x27;, &#x27;2015-10-24T00:00:00.000000000&#x27;,
+       &#x27;2015-11-01T00:00:00.000000000&#x27;, &#x27;2015-11-09T00:00:00.000000000&#x27;,
+       &#x27;2015-11-17T00:00:00.000000000&#x27;, &#x27;2015-11-25T00:00:00.000000000&#x27;,
+       &#x27;2015-12-03T00:00:00.000000000&#x27;, &#x27;2015-12-11T00:00:00.000000000&#x27;,
+       &#x27;2015-12-19T00:00:00.000000000&#x27;, &#x27;2015-12-27T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>16.23</div><input id='attrs-e7798245-63c5-4de7-8a22-3ea7c2e665a3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e7798245-63c5-4de7-8a22-3ea7c2e665a3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f485d8dd-2ff5-4345-8e0c-0d0a6efb4a8d' class='xr-var-data-in' type='checkbox'><label for='data-f485d8dd-2ff5-4345-8e0c-0d0a6efb4a8d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>valid_max :</span></dt><dd>89.97916666666667</dd><dt><span>valid_min :</span></dt><dd>-89.97916666666666</dd></dl></div><div class='xr-var-data'><pre>array(16.22916667)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>96.44</div><input id='attrs-2984e4e3-e0f3-41bd-a3f5-dfe2d505efea' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2984e4e3-e0f3-41bd-a3f5-dfe2d505efea' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6729fca5-dac4-4234-ac8d-4bb30b07b183' class='xr-var-data-in' type='checkbox'><label for='data-6729fca5-dac4-4234-ac8d-4bb30b07b183' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>valid_max :</span></dt><dd>179.97916666666663</dd><dt><span>valid_min :</span></dt><dd>-179.97916666666666</dd></dl></div><div class='xr-var-data'><pre>array(96.4375)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b64c21de-0010-4a33-90c2-dfd8c39ea1d2' class='xr-section-summary-in' type='checkbox' checked /><label for='section-b64c21de-0010-4a33-90c2-dfd8c39ea1d2' class='xr-section-summary' title='Expand/collapse section'>Data variables: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>atot_412</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-099b966b-96b7-40d8-b210-c876e02fb4db' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-099b966b-96b7-40d8-b210-c876e02fb4db' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b1df4cf3-580c-4f07-969a-2ce3bd1a5654' class='xr-var-data-in' type='checkbox'><label for='data-b1df4cf3-580c-4f07-969a-2ce3bd1a5654' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Total absorption coefficient at 412 nm derived using the QAA model V6 (Lee et al 2014) as parameterised within SeaDAS.</dd><dt><span>paper_ref :</span></dt><dd>Lee, Z., et al. Update of the Quasi-Analytical Algorithm (QAA_v6) [R/OL]. International Ocean Color Group Software Report [2013-04-03]. http://www.ioccg.org/groups/Software-OCA/OAA_5.2014.</dd><dt><span>parameter_vocab_uri :</span></dt><dd>http://vocab.ndg.nerc.ac.uk/term/P071/19/CFSN0062</dd><dt><span>standard_name :</span></dt><dd>volume_absorption_coefficient_of_radiative_flux_in_sea_water</dd><dt><span>units :</span></dt><dd>m-1</dd><dt><span>units_nonstandard :</span></dt><dd>m^-1</dd><dt><span>wavelength :</span></dt><dd>412</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 184 B </td>
+                        <td> 4 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (46,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 46 chunks in 4 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="10" y1="0" x2="10" y2="29" />
+  <line x1="18" y1="0" x2="18" y2="29" />
+  <line x1="23" y1="0" x2="23" y2="29" />
+  <line x1="31" y1="0" x2="31" y2="29" />
+  <line x1="36" y1="0" x2="36" y2="29" />
+  <line x1="41" y1="0" x2="41" y2="29" />
+  <line x1="49" y1="0" x2="49" y2="29" />
+  <line x1="54" y1="0" x2="54" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="86" y1="0" x2="86" y2="29" />
+  <line x1="93" y1="0" x2="93" y2="29" />
+  <line x1="99" y1="0" x2="99" y2="29" />
+  <line x1="106" y1="0" x2="106" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.503486635972166 0.0,29.503486635972166" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.0" y="49.503486635972166" font-size="1.0rem" font-weight="100" text-anchor="middle" >46</text>
+  <text x="140.0" y="14.751743317986083" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.0,14.751743317986083)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>atot_443</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-3bb27dff-b21a-42c5-b774-ece0fe683cbb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3bb27dff-b21a-42c5-b774-ece0fe683cbb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c52cd41a-a7bf-4f6e-aaf7-3bb5a8c399de' class='xr-var-data-in' type='checkbox'><label for='data-c52cd41a-a7bf-4f6e-aaf7-3bb5a8c399de' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Total absorption coefficient at 443 nm derived using the QAA model V6 (Lee et al 2014) as parameterised within SeaDAS.</dd><dt><span>paper_ref :</span></dt><dd>Lee, Z., et al. Update of the Quasi-Analytical Algorithm (QAA_v6) [R/OL]. International Ocean Color Group Software Report [2013-04-03]. http://www.ioccg.org/groups/Software-OCA/OAA_5.2014.</dd><dt><span>parameter_vocab_uri :</span></dt><dd>http://vocab.ndg.nerc.ac.uk/term/P071/19/CFSN0062</dd><dt><span>standard_name :</span></dt><dd>volume_absorption_coefficient_of_radiative_flux_in_sea_water</dd><dt><span>units :</span></dt><dd>m-1</dd><dt><span>units_nonstandard :</span></dt><dd>m^-1</dd><dt><span>wavelength :</span></dt><dd>443</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 184 B </td>
+                        <td> 4 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (46,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 46 chunks in 4 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="10" y1="0" x2="10" y2="29" />
+  <line x1="18" y1="0" x2="18" y2="29" />
+  <line x1="23" y1="0" x2="23" y2="29" />
+  <line x1="31" y1="0" x2="31" y2="29" />
+  <line x1="36" y1="0" x2="36" y2="29" />
+  <line x1="41" y1="0" x2="41" y2="29" />
+  <line x1="49" y1="0" x2="49" y2="29" />
+  <line x1="54" y1="0" x2="54" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="86" y1="0" x2="86" y2="29" />
+  <line x1="93" y1="0" x2="93" y2="29" />
+  <line x1="99" y1="0" x2="99" y2="29" />
+  <line x1="106" y1="0" x2="106" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.503486635972166 0.0,29.503486635972166" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.0" y="49.503486635972166" font-size="1.0rem" font-weight="100" text-anchor="middle" >46</text>
+  <text x="140.0" y="14.751743317986083" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.0,14.751743317986083)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>atot_490</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-0a9255f0-f779-4584-880f-2c01c820a6c7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0a9255f0-f779-4584-880f-2c01c820a6c7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-43918898-121c-4f1d-8d52-cb9fd9afb83d' class='xr-var-data-in' type='checkbox'><label for='data-43918898-121c-4f1d-8d52-cb9fd9afb83d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Total absorption coefficient at 490 nm derived using the QAA model V6 (Lee et al 2014) as parameterised within SeaDAS.</dd><dt><span>paper_ref :</span></dt><dd>Lee, Z., et al. Update of the Quasi-Analytical Algorithm (QAA_v6) [R/OL]. International Ocean Color Group Software Report [2013-04-03]. http://www.ioccg.org/groups/Software-OCA/OAA_5.2014.</dd><dt><span>parameter_vocab_uri :</span></dt><dd>http://vocab.ndg.nerc.ac.uk/term/P071/19/CFSN0062</dd><dt><span>standard_name :</span></dt><dd>volume_absorption_coefficient_of_radiative_flux_in_sea_water</dd><dt><span>units :</span></dt><dd>m-1</dd><dt><span>units_nonstandard :</span></dt><dd>m^-1</dd><dt><span>wavelength :</span></dt><dd>490</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 184 B </td>
+                        <td> 4 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (46,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 46 chunks in 4 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="10" y1="0" x2="10" y2="29" />
+  <line x1="18" y1="0" x2="18" y2="29" />
+  <line x1="23" y1="0" x2="23" y2="29" />
+  <line x1="31" y1="0" x2="31" y2="29" />
+  <line x1="36" y1="0" x2="36" y2="29" />
+  <line x1="41" y1="0" x2="41" y2="29" />
+  <line x1="49" y1="0" x2="49" y2="29" />
+  <line x1="54" y1="0" x2="54" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="86" y1="0" x2="86" y2="29" />
+  <line x1="93" y1="0" x2="93" y2="29" />
+  <line x1="99" y1="0" x2="99" y2="29" />
+  <line x1="106" y1="0" x2="106" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.503486635972166 0.0,29.503486635972166" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.0" y="49.503486635972166" font-size="1.0rem" font-weight="100" text-anchor="middle" >46</text>
+  <text x="140.0" y="14.751743317986083" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.0,14.751743317986083)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>atot_510</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-00093adc-c68c-4325-8f50-5682af186ec3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-00093adc-c68c-4325-8f50-5682af186ec3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e29eeae9-492f-4bb5-acec-eabc428d5f71' class='xr-var-data-in' type='checkbox'><label for='data-e29eeae9-492f-4bb5-acec-eabc428d5f71' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Total absorption coefficient at 510 nm derived using the QAA model V6 (Lee et al 2014) as parameterised within SeaDAS.</dd><dt><span>paper_ref :</span></dt><dd>Lee, Z., et al. Update of the Quasi-Analytical Algorithm (QAA_v6) [R/OL]. International Ocean Color Group Software Report [2013-04-03]. http://www.ioccg.org/groups/Software-OCA/OAA_5.2014.</dd><dt><span>parameter_vocab_uri :</span></dt><dd>http://vocab.ndg.nerc.ac.uk/term/P071/19/CFSN0062</dd><dt><span>standard_name :</span></dt><dd>volume_absorption_coefficient_of_radiative_flux_in_sea_water</dd><dt><span>units :</span></dt><dd>m-1</dd><dt><span>units_nonstandard :</span></dt><dd>m^-1</dd><dt><span>wavelength :</span></dt><dd>510</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 184 B </td>
+                        <td> 4 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (46,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 46 chunks in 4 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="10" y1="0" x2="10" y2="29" />
+  <line x1="18" y1="0" x2="18" y2="29" />
+  <line x1="23" y1="0" x2="23" y2="29" />
+  <line x1="31" y1="0" x2="31" y2="29" />
+  <line x1="36" y1="0" x2="36" y2="29" />
+  <line x1="41" y1="0" x2="41" y2="29" />
+  <line x1="49" y1="0" x2="49" y2="29" />
+  <line x1="54" y1="0" x2="54" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="86" y1="0" x2="86" y2="29" />
+  <line x1="93" y1="0" x2="93" y2="29" />
+  <line x1="99" y1="0" x2="99" y2="29" />
+  <line x1="106" y1="0" x2="106" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.503486635972166 0.0,29.503486635972166" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.0" y="49.503486635972166" font-size="1.0rem" font-weight="100" text-anchor="middle" >46</text>
+  <text x="140.0" y="14.751743317986083" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.0,14.751743317986083)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>atot_560</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-5de3f176-5a64-4a28-bbd2-2cfa384ad331' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5de3f176-5a64-4a28-bbd2-2cfa384ad331' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-77569b4e-3b48-43f6-8994-2921ff88bab4' class='xr-var-data-in' type='checkbox'><label for='data-77569b4e-3b48-43f6-8994-2921ff88bab4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Total absorption coefficient at 560 nm derived using the QAA model V6 (Lee et al 2014) as parameterised within SeaDAS.</dd><dt><span>paper_ref :</span></dt><dd>Lee, Z., et al. Update of the Quasi-Analytical Algorithm (QAA_v6) [R/OL]. International Ocean Color Group Software Report [2013-04-03]. http://www.ioccg.org/groups/Software-OCA/OAA_5.2014.</dd><dt><span>parameter_vocab_uri :</span></dt><dd>http://vocab.ndg.nerc.ac.uk/term/P071/19/CFSN0062</dd><dt><span>standard_name :</span></dt><dd>volume_absorption_coefficient_of_radiative_flux_in_sea_water</dd><dt><span>units :</span></dt><dd>m-1</dd><dt><span>units_nonstandard :</span></dt><dd>m^-1</dd><dt><span>wavelength :</span></dt><dd>560</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 184 B </td>
+                        <td> 4 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (46,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 46 chunks in 4 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="10" y1="0" x2="10" y2="29" />
+  <line x1="18" y1="0" x2="18" y2="29" />
+  <line x1="23" y1="0" x2="23" y2="29" />
+  <line x1="31" y1="0" x2="31" y2="29" />
+  <line x1="36" y1="0" x2="36" y2="29" />
+  <line x1="41" y1="0" x2="41" y2="29" />
+  <line x1="49" y1="0" x2="49" y2="29" />
+  <line x1="54" y1="0" x2="54" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="86" y1="0" x2="86" y2="29" />
+  <line x1="93" y1="0" x2="93" y2="29" />
+  <line x1="99" y1="0" x2="99" y2="29" />
+  <line x1="106" y1="0" x2="106" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.503486635972166 0.0,29.503486635972166" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.0" y="49.503486635972166" font-size="1.0rem" font-weight="100" text-anchor="middle" >46</text>
+  <text x="140.0" y="14.751743317986083" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.0,14.751743317986083)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>atot_665</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-6ae1746a-2bd4-4156-af76-839aae44f99c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6ae1746a-2bd4-4156-af76-839aae44f99c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4a8f3dc4-a747-4b99-9b29-ed69f39e48af' class='xr-var-data-in' type='checkbox'><label for='data-4a8f3dc4-a747-4b99-9b29-ed69f39e48af' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Total absorption coefficient at 665 nm derived using the QAA model V6 (Lee et al 2014) as parameterised within SeaDAS.</dd><dt><span>paper_ref :</span></dt><dd>Lee, Z., et al. Update of the Quasi-Analytical Algorithm (QAA_v6) [R/OL]. International Ocean Color Group Software Report [2013-04-03]. http://www.ioccg.org/groups/Software-OCA/OAA_5.2014.</dd><dt><span>parameter_vocab_uri :</span></dt><dd>http://vocab.ndg.nerc.ac.uk/term/P071/19/CFSN0062</dd><dt><span>standard_name :</span></dt><dd>volume_absorption_coefficient_of_radiative_flux_in_sea_water</dd><dt><span>units :</span></dt><dd>m-1</dd><dt><span>units_nonstandard :</span></dt><dd>m^-1</dd><dt><span>wavelength :</span></dt><dd>665</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 184 B </td>
+                        <td> 4 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (46,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 46 chunks in 4 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="79" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="29" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="29" style="stroke-width:2" />
+  <line x1="5" y1="0" x2="5" y2="29" />
+  <line x1="10" y1="0" x2="10" y2="29" />
+  <line x1="18" y1="0" x2="18" y2="29" />
+  <line x1="23" y1="0" x2="23" y2="29" />
+  <line x1="31" y1="0" x2="31" y2="29" />
+  <line x1="36" y1="0" x2="36" y2="29" />
+  <line x1="41" y1="0" x2="41" y2="29" />
+  <line x1="49" y1="0" x2="49" y2="29" />
+  <line x1="54" y1="0" x2="54" y2="29" />
+  <line x1="62" y1="0" x2="62" y2="29" />
+  <line x1="67" y1="0" x2="67" y2="29" />
+  <line x1="75" y1="0" x2="75" y2="29" />
+  <line x1="80" y1="0" x2="80" y2="29" />
+  <line x1="86" y1="0" x2="86" y2="29" />
+  <line x1="93" y1="0" x2="93" y2="29" />
+  <line x1="99" y1="0" x2="99" y2="29" />
+  <line x1="106" y1="0" x2="106" y2="29" />
+  <line x1="112" y1="0" x2="112" y2="29" />
+  <line x1="120" y1="0" x2="120" y2="29" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,29.503486635972166 0.0,29.503486635972166" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.0" y="49.503486635972166" font-size="1.0rem" font-weight="100" text-anchor="middle" >46</text>
+  <text x="140.0" y="14.751743317986083" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.0,14.751743317986083)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-f362ba99-790b-4be8-b56b-3b0643f966e4' class='xr-section-summary-in' type='checkbox' /><label for='section-f362ba99-790b-4be8-b56b-3b0643f966e4' class='xr-section-summary' title='Expand/collapse section'>Attributes: <span>(45)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.7</dd><dt><span>Metadata_Conventions :</span></dt><dd>Unidata Dataset Discovery v1.0</dd><dt><span>NCO :</span></dt><dd>netCDF Operators version 4.7.5 (Homepage = http://nco.sf.net, Code = http://github.com/nco/nco)</dd><dt><span>cdm_data_type :</span></dt><dd>Grid</dd><dt><span>comment :</span></dt><dd>See summary attribute</dd><dt><span>creation_date :</span></dt><dd>Tue Jan 31 11:54:16 2023</dd><dt><span>creator_email :</span></dt><dd>help@esa-oceancolour-cci.org</dd><dt><span>creator_name :</span></dt><dd>Plymouth Marine Laboratory</dd><dt><span>creator_url :</span></dt><dd>http://esa-oceancolour-cci.org</dd><dt><span>date_created :</span></dt><dd>Tue Jan 31 11:54:16 2023</dd><dt><span>geospatial_lat_resolution :</span></dt><dd>.04166666666666666666</dd><dt><span>geospatial_lat_units :</span></dt><dd>decimal degrees north</dd><dt><span>geospatial_lon_resolution :</span></dt><dd>.04166666666666666666</dd><dt><span>geospatial_lon_units :</span></dt><dd>decimal degrees east</dd><dt><span>git_commit_hash :</span></dt><dd>ef9b6f099ea56e816faba0c254a71b178180897f</dd><dt><span>history :</span></dt><dd>Source data were: ESACCI-OC-L3S-OC_PRODUCTS-MERGED-1D_DAILY_4km_GEO_PML_OCx_QAA-20221227-fv6.0.nc, ESACCI-OC-L3S-OC_PRODUCTS-MERGED-1D_DAILY_4km_GEO_PML_OCx_QAA-20221228-fv6.0.nc, ESACCI-OC-L3S-OC_PRODUCTS-MERGED-1D_DAILY_4km_GEO_PML_OCx_QAA-20221229-fv6.0.nc, ESACCI-OC-L3S-OC_PRODUCTS-MERGED-1D_DAILY_4km_GEO_PML_OCx_QAA-20221230-fv6.0.nc, ESACCI-OC-L3S-OC_PRODUCTS-MERGED-1D_DAILY_4km_GEO_PML_OCx_QAA-20221231-fv6.0.nc; netcdf_compositor_cci composites  Rrs_412, Rrs_412_bias, Rrs_443, Rrs_443_bias, Rrs_490, Rrs_490_bias, Rrs_510, Rrs_510_bias, Rrs_560, Rrs_560_bias, Rrs_665, Rrs_665_bias, adg_412, adg_412_bias, adg_443, adg_443_bias, adg_490, adg_490_bias, adg_510, adg_510_bias, adg_560, adg_560_bias, adg_665, adg_665_bias, aph_412, aph_412_bias, aph_443, aph_443_bias, aph_490, aph_490_bias, aph_510, aph_510_bias, aph_560, aph_560_bias, aph_665, aph_665_bias, atot_412, atot_443, atot_490, atot_510, atot_560, atot_665, bbp_412, bbp_443, bbp_490, bbp_510, bbp_560, bbp_665, chlor_a, chlor_a_log10_bias, kd_490, kd_490_bias, water_class1, water_class10, water_class11, water_class12, water_class13, water_class14, water_class2, water_class3, water_class4, water_class5, water_class6, water_class7, water_class8, water_class9 with --mean,  Rrs_412_rmsd, Rrs_443_rmsd, Rrs_490_rmsd, Rrs_510_rmsd, Rrs_560_rmsd, Rrs_665_rmsd, adg_412_rmsd, adg_443_rmsd, adg_490_rmsd, adg_510_rmsd, adg_560_rmsd, adg_665_rmsd, aph_412_rmsd, aph_443_rmsd, aph_490_rmsd, aph_510_rmsd, aph_560_rmsd, aph_665_rmsd, chlor_a_log10_rmsd, kd_490_rmsd with --root-mean-square, and  MERIS_nobs, MODISA_nobs, OLCI-A_nobs, OLCI-B_nobs, SeaWiFS_nobs, VIIRS_nobs, total_nobs - with --total
+Modified with the ESA Climate Toolbox v1.7 esa_climate_toolbox.ops.select.select_var v1.0 
+Default input values: OrderedDict({&#x27;ds&#x27;: {&#x27;position&#x27;: 0, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.DatasetLike&#x27;&gt;, &#x27;description&#x27;: &#x27;The dataset or dataframe from which to perform selection.&#x27;}, &#x27;var&#x27;: {&#x27;position&#x27;: 1, &#x27;default_value&#x27;: None, &#x27;nullable&#x27;: True, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.VarNamesLike&#x27;&gt;, &#x27;description&#x27;: &quot;One or more variable names to select and preserve in the dataset. All of these are valid &#x27;var_name&#x27; &#x27;var_name1,var_name2,var_name3&#x27; [&#x27;var_name1&#x27;, &#x27;var_name2&#x27;]. One can also use wildcards when doing the selection. E.g., choosing &#x27;var_name*&#x27; for selection will select all variables that start with &#x27;var_name&#x27;. This can be used to select variables along with their auxiliary variables, to select all uncertainty variables, and so on.&quot;, &#x27;value_set_source&#x27;: &#x27;ds&#x27;}})
+Provided input values: {&#x27;ds&#x27;: &lt;class &#x27;xarray.core.dataset.Dataset&#x27;&gt;, &#x27;var&#x27;: [&#x27;atot_412&#x27;, &#x27;atot_443&#x27;, &#x27;atot_490&#x27;, &#x27;atot_510&#x27;, &#x27;atot_560&#x27;, &#x27;atot_665&#x27;]}
+
+Modified with the ESA Climate Toolbox v1.7 esa_climate_toolbox.ops.subset.subset_temporal v1.0 
+Default input values: OrderedDict({&#x27;ds&#x27;: {&#x27;position&#x27;: 0, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.DatasetLike&#x27;&gt;, &#x27;description&#x27;: &#x27;Dataset or dataframe to subset&#x27;}, &#x27;time_range&#x27;: {&#x27;position&#x27;: 1, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.TimeRangeLike&#x27;&gt;, &#x27;description&#x27;: &#x27;Time range to select&#x27;}})
+Provided input values: {&#x27;ds&#x27;: &lt;class &#x27;xarray.core.dataset.Dataset&#x27;&gt;, &#x27;time_range&#x27;: [&#x27;2015-01-01&#x27;, &#x27;2015-12-31&#x27;]}
+
+Modified with the ESA Climate Toolbox v1.7 esa_climate_toolbox.ops.select.select_var v1.0 
+Default input values: OrderedDict({&#x27;ds&#x27;: {&#x27;position&#x27;: 0, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.DatasetLike&#x27;&gt;, &#x27;description&#x27;: &#x27;The dataset or dataframe from which to perform selection.&#x27;}, &#x27;var&#x27;: {&#x27;position&#x27;: 1, &#x27;default_value&#x27;: None, &#x27;nullable&#x27;: True, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.VarNamesLike&#x27;&gt;, &#x27;description&#x27;: &quot;One or more variable names to select and preserve in the dataset. All of these are valid &#x27;var_name&#x27; &#x27;var_name1,var_name2,var_name3&#x27; [&#x27;var_name1&#x27;, &#x27;var_name2&#x27;]. One can also use wildcards when doing the selection. E.g., choosing &#x27;var_name*&#x27; for selection will select all variables that start with &#x27;var_name&#x27;. This can be used to select variables along with their auxiliary variables, to select all uncertainty variables, and so on.&quot;, &#x27;value_set_source&#x27;: &#x27;ds&#x27;}})
+Provided input values: {&#x27;var&#x27;: &#x27;*&#x27;, &#x27;ds&#x27;: &lt;class &#x27;xarray.core.dataset.Dataset&#x27;&gt;}
+
+Modified with the ESA Climate Toolbox v1.7 esa_climate_toolbox.ops.timeseries.tseries_point v1.0 
+Default input values: OrderedDict({&#x27;ds&#x27;: {&#x27;position&#x27;: 0, &#x27;data_type&#x27;: &lt;class &#x27;xarray.core.dataset.Dataset&#x27;&gt;, &#x27;description&#x27;: &#x27;The dataset from which to perform timeseries extraction.&#x27;}, &#x27;point&#x27;: {&#x27;position&#x27;: 1, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.PointLike&#x27;&gt;, &#x27;description&#x27;: &#x27;Point to extract, e.g. (lon,lat)&#x27;}, &#x27;var&#x27;: {&#x27;position&#x27;: 2, &#x27;default_value&#x27;: None, &#x27;nullable&#x27;: True, &#x27;data_type&#x27;: &lt;class &#x27;esa_climate_toolbox.core.types.VarNamesLike&#x27;&gt;, &#x27;description&#x27;: &#x27;Variable(s) for which to perform the timeseries selection if none is given, all variables in the dataset will be used.&#x27;, &#x27;value_set_source&#x27;: &#x27;ds&#x27;}, &#x27;method&#x27;: {&#x27;position&#x27;: 3, &#x27;default_value&#x27;: &#x27;nearest&#x27;, &#x27;data_type&#x27;: &lt;class &#x27;str&#x27;&gt;, &#x27;description&#x27;: &#x27;Interpolation method to use.&#x27;, &#x27;value_set&#x27;: [&#x27;nearest&#x27;, &#x27;ffill&#x27;, &#x27;bfill&#x27;]}})
+Provided input values: {&#x27;ds&#x27;: &lt;class &#x27;xarray.core.dataset.Dataset&#x27;&gt;, &#x27;point&#x27;: (96.44, 16.23), &#x27;var&#x27;: None, &#x27;method&#x27;: &#x27;nearest&#x27;}
+</dd><dt><span>id :</span></dt><dd>ESACCI-OC-L3S-OC_PRODUCTS-MERGED-8D_DAILY_4km_GEO_PML_OCx_QAA-20221227-fv6.0.nc</dd><dt><span>institution :</span></dt><dd>Plymouth Marine Laboratory</dd><dt><span>keywords :</span></dt><dd>satellite,observation,ocean,ocean colour</dd><dt><span>keywords_vocabulary :</span></dt><dd>none</dd><dt><span>license :</span></dt><dd>ESA CCI Data Policy: free and open access.  When referencing, please use: Ocean Colour Climate Change Initiative dataset, Version &lt;Version Number&gt;, European Space Agency, available online at http://www.esa-oceancolour-cci.org.  We would also appreciate being notified of publications so that we can list them on the project website at http://www.esa-oceancolour-cci.org/?q=publications</dd><dt><span>naming_authority :</span></dt><dd>uk.ac.pml</dd><dt><span>number_of_bands_used_to_classify :</span></dt><dd>4</dd><dt><span>number_of_files_composited :</span></dt><dd>5</dd><dt><span>number_of_optical_water_types :</span></dt><dd>14</dd><dt><span>platform :</span></dt><dd>Orbview-2,Aqua,Envisat,Suomi-NPP, Sentinel-3a, Sentinel-3b</dd><dt><span>processing_level :</span></dt><dd>Level-3</dd><dt><span>product_version :</span></dt><dd>6.0</dd><dt><span>project :</span></dt><dd>Climate Change Initiative - European Space Agency</dd><dt><span>references :</span></dt><dd>http://www.esa-oceancolour-cci.org/</dd><dt><span>sensor :</span></dt><dd>SeaWiFS,MODIS,MERIS,VIIRS,OLCI</dd><dt><span>sensors_present :</span></dt><dd> OLCIa OLCIb</dd><dt><span>source :</span></dt><dd>NASA SeaWiFS  L1A and L2 R2018.0 LAC and GAC, MODIS-Aqua L1A and L2 R2018.0, MERIS L1B 3rd reprocessing inc OCL corrections, NASA VIIRS L1A and L2 R2018.0, OLCI L1B</dd><dt><span>spatial_resolution :</span></dt><dd>4km nominal at equator</dd><dt><span>standard_name_vocabulary :</span></dt><dd>NetCDF Climate and Forecast (CF) Metadata Conventions Version 1.7</dd><dt><span>start_date :</span></dt><dd>27-DEC-2022 00:00:00.000000</dd><dt><span>stop_date :</span></dt><dd>31-DEC-2022 23:59:00.000000</dd><dt><span>summary :</span></dt><dd>Data products generated by the Ocean Colour component of the European Space Agency Climate Change Initiative project. These files are 8 day composites of merged sensor (MERIS, MODIS Aqua, SeaWiFS LAC &amp; GAC, VIIRS, OLCI) products.  MODIS Aqua and SeaWiFS were band-shifted and bias-corrected to MERIS bands and values using a temporally and spatially varying scheme based on the overlap years of 2003-2007.  VIIRS was band-shifted and bias-corrected in a second stage against the MODIS Rrs that had already been corrected to MERIS levels, for the overlap period 2012-2013; and at the third stage OLCI was bias corrected against already corrected MODIS, for overlap period 2016-07-01 to 2019-06-30.  VIIRS, MODIS, SeaWiFS and MERIS Rrs were derived from a combination of NASA&#x27;s l2gen (for basic sensor geometry corrections, etc) and HYGEOS Polymer v4.12 (for atmospheric correction). OLCI Rrs were sourced at L1b (already geometrically corrected) and processed with polymer.  The Rrs were binned to a sinusoidal 4km level-3 grid, and later to 4km geographic projection, by Brockmann Consult&#x27;s SNAP.  Derived products were generally computed with the standard algorithmsthrough SeaDAS.  QAA IOPs were derived using the standard SeaDAS algorithm but with a modified backscattering table to match that used in the bandshifting.  The final chlorophyll is a combination of OCI, OCI2, OC2 and OCx, depending on the water class memberships.  Uncertainty estimates were added using the fuzzy water classifier and uncertainty estimation algorithm of Tim Moore as documented in Jackson et al (2017). and updated accorsing to Jackson et al. (in prep).</dd><dt><span>time_coverage_duration :</span></dt><dd>P361D</dd><dt><span>time_coverage_end :</span></dt><dd>2015-12-27T00:00:00</dd><dt><span>time_coverage_resolution :</span></dt><dd>P8D</dd><dt><span>time_coverage_start :</span></dt><dd>2015-01-01T00:00:00</dd><dt><span>title :</span></dt><dd>ESA CCI Ocean Colour Product</dd><dt><span>tracking_id :</span></dt><dd>518fbec7-8d82-4961-a1e4-19736132d4b7</dd><dt><span>catalogue_url :</span></dt><dd>https://catalogue.ceda.ac.uk/uuid/0875b4675f1e46ebadb526e0b95505c5</dd></dl></div></li></ul></div></div>
